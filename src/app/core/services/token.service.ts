@@ -1,6 +1,6 @@
 // src/app/core/services/token.service.ts
 import { Injectable } from '@angular/core';
-import jwt_decode from 'jwt-decode';
+import { jwtDecode } from 'jwt-decode';
 import { Usuario } from '../../shared/models/usuario.model';
 
 @Injectable({
@@ -27,7 +27,7 @@ export class TokenService {
     const token = this.getToken();
     if (token) {
       try {
-        return jwt_decode<Usuario>(token);
+        return jwtDecode<Usuario>(token);
       } catch (error) {
         return null;
       }
